@@ -16,7 +16,36 @@ const navLinks = [
         </div>
         <span class="text-2xl font-serif font-bold text-burgundy">Savore</span>
       </a>
-      <div class="hidden md:flex items-center gap-8">
+      <div class="flex items-center gap-4">
+        <div class="hidden md:flex items-center gap-8">
+          {navLinks.map(link => (
+            <a
+              href={link.href}
+              class="text-gray-700 hover:text-burgundy font-medium transition"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+        <button class="hidden md:inline-flex bg-burgundy text-white px-6 py-2.5 rounded-lg font-medium hover:bg-burgundy/90 transition">
+          Reserve Table
+        </button>
+        <button
+          id="mobile-menu-toggle"
+          class="md:hidden p-2 rounded-md text-gray-700 hover:text-burgundy focus:outline-none focus:ring-2 focus:ring-burgundy"
+          type="button"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mt-4 flex flex-col gap-4 md:hidden hidden">
+      <div class="flex flex-col gap-3">
         {navLinks.map(link => (
           <a
             href={link.href}
@@ -32,3 +61,39 @@ const navLinks = [
     </div>
   </div>
 </nav>
+
+<script is:inline>
+  const toggleButton = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (toggleButton && mobileMenu) {
+    const focusableSelectors = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    const closeMenu = () => {
+      toggleButton.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+      toggleButton.focus();
+    };
+
+    toggleButton.addEventListener('click', () => {
+      const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+      const nextExpanded = !isExpanded;
+      toggleButton.setAttribute('aria-expanded', String(nextExpanded));
+      mobileMenu.classList.toggle('hidden', !nextExpanded);
+
+      if (nextExpanded) {
+        const firstFocusable = mobileMenu.querySelector(focusableSelectors);
+        firstFocusable?.focus();
+      } else {
+        toggleButton.focus();
+      }
+    });
+
+    mobileMenu.addEventListener('click', event => {
+      const target = event.target;
+      if (target instanceof HTMLElement && target.matches('a, button')) {
+        closeMenu();
+      }
+    });
+  }
+</script>
