@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="About" description="Learn about Savore's story and team">
+  <Navigation />
+  <!-- Story Section -->
+  <section class="pt-32 pb-16 bg-gradient-to-br from-cream to-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h1 class="text-5xl md:text-6xl font-serif font-bold text-burgundy text-center mb-6">About Savore</h1>
+      <p class="text-lg md:text-xl text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+        At Savore, our journey begins with a passion for culinary artistry and a
+        dedication to creating unforgettable dining experiences.  From the
+        freshness of our ingredients to the warmth of our hospitality, every
+        detail is crafted to delight.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="space-y-6">
+          <h2 class="text-3xl font-serif font-bold text-burgundy">Our Story</h2>
+          <p class="text-gray-700">Savore was founded by a group of friends who shared a love for food and a dream of bringing fine dining to our community.  Our humble beginnings as a small bistro have grown into a destination restaurant renowned for its intimate atmosphere and impeccable service.</p>
+          <p class="text-gray-700">Over the years, we’ve remained true to our roots—celebrating local farmers, championing sustainable practices, and always striving to innovate while honouring culinary traditions.</p>
+        </div>
+        <div class="space-y-6">
+          <h2 class="text-3xl font-serif font-bold text-burgundy">Our Philosophy</h2>
+          <p class="text-gray-700">We believe that food is more than sustenance; it is an experience that brings people together.  By focusing on fresh, seasonal ingredients and marrying them with global influences, we create dishes that tell a story and evoke emotion.</p>
+          <p class="text-gray-700">Our commitment to excellence extends beyond the kitchen—every member of our team is dedicated to providing service that feels both refined and warm.  Your time with us should feel like visiting an old friend.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Team Section -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-serif font-bold text-burgundy text-center mb-16">Meet Our Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+        <div class="text-center">
+          <div class="w-32 h-32 mx-auto rounded-full bg-burgundy overflow-hidden mb-6"></div>
+          <h3 class="text-2xl font-serif font-bold text-burgundy mb-2">Chef Marco</h3>
+          <p class="text-gold uppercase text-sm mb-2">Executive Chef</p>
+          <p class="text-gray-600">With over 20 years of culinary experience across Europe and Asia, Chef Marco leads our kitchen with creativity and precision.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-32 h-32 mx-auto rounded-full bg-burgundy overflow-hidden mb-6"></div>
+          <h3 class="text-2xl font-serif font-bold text-burgundy mb-2">Chef Elena</h3>
+          <p class="text-gold uppercase text-sm mb-2">Pastry Chef</p>
+          <p class="text-gray-600">A master of desserts, Chef Elena crafts delectable pastries that balance tradition with innovation.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-32 h-32 mx-auto rounded-full bg-burgundy overflow-hidden mb-6"></div>
+          <h3 class="text-2xl font-serif font-bold text-burgundy mb-2">Chef Daniel</h3>
+          <p class="text-gold uppercase text-sm mb-2">Sommelier</p>
+          <p class="text-gray-600">Daniel curates our extensive wine list and ensures each pairing enhances the flavours of your meal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</BaseLayout>
